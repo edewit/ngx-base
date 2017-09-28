@@ -68,7 +68,7 @@ and install that symlinked node module into your webapp.
 3. Run your webapp in development mode, making sure you have a watch on `node_modules/ngx-base`
 enabled. To do this using a typical Angular Webpack setup, such as the one based on Angular Class,
 just run `npm start. You will have access to both JS sourcemaps and SASS sourcemaps if your webapp
-is properly setup.
+is properly setup. 
 
 Note that `fabric8-ui` is setup to do reloading and sourcemaps automatically when you
 run `npm start`.
