@@ -69,16 +69,16 @@
     "npm": ">= 3"
   },
   "dependencies": {
-    "@angular/core": "4.4.3",
-    "@angular/http": "4.4.3"
+    "@angular/core": "4.4.4",
+    "@angular/http": "4.4.4"
   },
   "peerDependencies": {},
   "devDependencies": {
-    "@angular/common": "4.4.3",
-    "@angular/compiler": "4.4.3",
-    "@angular/compiler-cli": "4.4.3",
-    "@angular/platform-browser": "4.4.3",
-    "@angular/platform-browser-dynamic": "4.4.3",
+    "@angular/common": "4.4.4",
+    "@angular/compiler": "4.4.4",
+    "@angular/compiler-cli": "4.4.4",
+    "@angular/platform-browser": "4.4.4",
+    "@angular/platform-browser-dynamic": "4.4.4",
     "@krux/condition-jenkins": "1.0.1",
     "@types/jasmine": "2.6.0",
     "angular2-template-loader": "0.6.2",
