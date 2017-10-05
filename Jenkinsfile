@@ -19,6 +19,7 @@ fabric8UINode{
       env.CI=true
       env.GIT_BRANCH="origin/master"
       sh "git checkout master"
+      sh "git pull"
       sh "git remote set-url origin git@github.com:${org}/${repo}.git"
 
       def branch
