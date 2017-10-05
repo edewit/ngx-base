@@ -16,6 +16,8 @@ fabric8UINode{
         pipeline.ci()
       }
     } else if (utils.isCD()){
+      env.CI=true
+      env.GIT_BRANCH="origin/master"
       sh "git checkout master"
       sh "git remote set-url origin git@github.com:${org}/${repo}.git"
 
