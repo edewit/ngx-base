@@ -11,7 +11,7 @@
     "build:components": "npm-run-all remove-dist bundle minify prebuild:add-require transpile-sass transpile copy-files postbuild:remove-require",
     "bundle": "webpack --config config/webpack.prod.js --progress --profile --bail",
     "clean-dist": "rimraf dist dist-watch",
-    "clean": "npm cache clean && npm run rimraf -- node_modules doc coverage dist bundles",
+    "clean": "npm cache verify && npm run rimraf -- node_modules doc coverage dist bundles",
     "cleanup": "rimraf dist/package.json dist/bundles dist/src dist/index.d.ts dist/index.metadata.json dist/index.js dist/index.js.map dist/LICENSE dist/README.md",
     "copy-files": "gulp copyfiles",
     "copy-dist-files": "copyfiles LICENSE README.md package.json index.js dist",
