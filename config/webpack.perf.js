@@ -98,7 +98,7 @@ module.exports = function () {
       /**
        * Displays an overview of what webpack bundled.
        */
-      new DashboardPlugin(),
+      //new DashboardPlugin(),
 
       /**
        * Plugin: DefinePlugin
