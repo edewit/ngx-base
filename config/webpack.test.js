@@ -87,15 +87,15 @@ module.exports = function (options) {
          *
          * See: https://github.com/webpack/source-map-loader
          */
-        {
-          test: /\.js$/,
-          use: ['source-map-loader'],
-          exclude: [
-            // these packages have problems with their sourcemaps
-            helpers.root('node_modules/rxjs'),
-            helpers.root('node_modules/@angular')
-          ]
-        },
+        // {
+        //   test: /\.js$/,
+        //   use: ['source-map-loader'],
+        //   exclude: [
+        //     // these packages have problems with their sourcemaps
+        //     helpers.root('node_modules/rxjs'),
+        //     helpers.root('node_modules/@angular')
+        //   ]
+        // },
 
         /**
          * Typescript loader support for .ts and Angular 2 async routes via .async.ts
