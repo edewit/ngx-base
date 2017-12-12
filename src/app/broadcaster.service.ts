@@ -41,9 +41,14 @@ interface BroadcastEvent {
 @Injectable()
 export class Broadcaster {
   private _eventBus: Subject<BroadcastEvent>;
+  public static refCount: number = 0;
 
   constructor() {
     this._eventBus = new Subject<BroadcastEvent>();
+    Broadcaster.refCount++;
+    if (Broadcaster.refCount > 1) {
+      throw new Error('Multiple broadcaster instances detected, this is a fatal error.');
+    }
   }
 
   /**

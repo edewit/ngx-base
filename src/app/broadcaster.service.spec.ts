@@ -6,19 +6,13 @@ describe('Service: Broadcaster service', () => {
   let broadcaster: Broadcaster;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [
-        Broadcaster
-      ]
-    });
+    broadcaster = new Broadcaster();
   });
 
-  beforeEach(inject(
-    [Broadcaster],
-    (broadcast: Broadcaster) => {
-      broadcaster = broadcast;
-    }
-  ));
+  afterEach( () => {
+    broadcaster = null;
+    Broadcaster.refCount = 0;
+  });
 
   it('Broadcaster can successfully send and receive messages', (done) => {
     broadcaster.on('testEvent').subscribe((data: number) => {
@@ -27,6 +21,12 @@ describe('Service: Broadcaster service', () => {
     });
 
     broadcaster.broadcast('testEvent', 1001);
+  });
+
+  it('Broadcaster can only be created once', () => {
+    expect(() => {
+      new Broadcaster();
+    }).toThrow();
   });
 });
 
