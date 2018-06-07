@@ -40,15 +40,11 @@ interface BroadcastEvent {
  */
 @Injectable()
 export class Broadcaster {
-  private _eventBus: Subject<BroadcastEvent>;
-  public static refCount: number = 0;
+  private _eventBus: Subject<BroadcastEvent> = new Subject<BroadcastEvent>();
+  private static instance: Broadcaster;
 
   constructor() {
-    this._eventBus = new Subject<BroadcastEvent>();
-    Broadcaster.refCount++;
-    if (Broadcaster.refCount > 1) {
-      throw new Error('Multiple broadcaster instances detected, this is a fatal error.');
-    }
+    return Broadcaster.instance = Broadcaster.instance || this;
   }
 
   /**
@@ -70,7 +66,7 @@ export class Broadcaster {
    */
   on<T>(key: any): Observable<T> {
     return this._eventBus.asObservable()
-      .filter(event => event.key === key)
-      .map(event => <T> event.data);
+      .filter((event: BroadcastEvent) => event.key === key)
+      .map((event: BroadcastEvent) => <T> event.data);
   }
 }

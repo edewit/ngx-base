@@ -11,7 +11,6 @@ describe('Service: Broadcaster service', () => {
 
   afterEach( () => {
     broadcaster = null;
-    Broadcaster.refCount = 0;
   });
 
   it('Broadcaster can successfully send and receive messages', (done) => {
@@ -23,10 +22,13 @@ describe('Service: Broadcaster service', () => {
     broadcaster.broadcast('testEvent', 1001);
   });
 
-  it('Broadcaster can only be created once', () => {
-    expect(() => {
-      new Broadcaster();
-    }).toThrow();
+  it('Broadcaster can only be created once', (done) => {
+    broadcaster.on('cheese').subscribe((data: string) => {
+      expect(data).toEqual('cheddar');
+      done();
+    });
+
+    new Broadcaster().broadcast('cheese', 'cheddar');
   });
 });
 
